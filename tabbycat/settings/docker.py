@@ -39,3 +39,8 @@ if bool(int(os.environ['DOCKER_REDIS'])) if 'DOCKER_REDIS' in os.environ else Fa
             },
         },
     }
+
+if DEBUG:
+    USE_WEBPACK_SERVER = True
+else:
+    USE_WEBPACK_SERVER = False

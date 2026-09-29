@@ -23,8 +23,8 @@
       <div class="col pl-0 pr-0">
 
         {% if extra %}
-          <h5>{{ text|safe }}</h5>
-          {{ extra }}
+          <h5 class="list-group-item-heading">{{ text|safe }}</h5>
+          <div class="list-group-item-text">{{ extra }}</div>
         {% else %}
           {{ text|safe }}
         {% endif %}

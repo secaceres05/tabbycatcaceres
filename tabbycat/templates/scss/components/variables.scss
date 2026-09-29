@@ -11,8 +11,11 @@
 // Layout Colors
 $alt-bg:                  #fff;     // For tables etc
 $table-bg-hover:          #e3e3e3;
-$sidebar-bg:              #333c47;  // Matches that of Jet
-$sidebar-muted-text:      $gray-400;
+$sidebar-bg:              #071a1c;  // Mismo tono que el navbar oscuro
+$sidebar-border:          rgba(255, 255, 255, 0.1);
+$sidebar-hover-bg:        rgba(255, 255, 255, 0.05);
+$sidebar-text:            $body-color;
+$sidebar-muted-text:      $gray-500;
 $droppable-bg:            $gray-200;
 $navbar-light-bg:         $alt-bg; // Footer and Top Navbar
 $navbar-light-border:     $gray-200; // Footer and Top Navbar
@@ -87,7 +90,7 @@ $back:                    hsla(217, 95%, 60%, 1); // Navy-Blue (blue + pink)
 //------------------------------------------------------------------------------
 
 $tooltip-max-width: 330px;
-$footer-height: 175px;
+$footer-height: 60px; // footer de una sola linea
 
 //------------------------------------------------------------------------------
 // Mixins

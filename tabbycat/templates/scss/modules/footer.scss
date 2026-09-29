@@ -18,10 +18,11 @@ body {
   bottom: 0;
   width: 100%;
   height: $footer-height;
+  background: transparent; // mismo fondo que el body
 
   a {
-    border-bottom: 1px solid theme-color("secondary");
-    color: theme-color("dark");
+    color: inherit;
+    text-decoration: underline;
   }
 }
 

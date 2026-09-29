@@ -6,6 +6,15 @@
   background: $navbar-light-bg;
   border-bottom: 1px solid $navbar-light-border;
   border-top: 1px solid $navbar-light-border;
+}
+
+.navbar-dark {
+  background: $navbar-dark-bg;
+  border-bottom: 1px solid $card-border-color;
+}
+
+.navbar-light,
+.navbar-dark {
 
   .navbar-brand {
     font-size: 1rem;
@@ -40,6 +49,20 @@
   }
 }
 
+// El dropdown usa $dropdown-bg oscuro: texto claro para que sea legible
+.navbar-dark .dropdown-menu .dropdown-item {
+  color: $dropdown-link-color;
+
+  &:hover {
+    color: theme-color("primary");
+  }
+
+  &.active,
+  &:focus {
+    color: $navbar-dark-active-color;
+  }
+}
+
 .draw-dropdown-menu {
 
   .dropdown-item:last-child {
@@ -68,6 +91,8 @@
     height: 100%;
     z-index: 0;
     border-radius: 0;
+    border: 0;
+    border-right: 1px solid $sidebar-border;
   }
 }
 
@@ -75,24 +100,29 @@
   background: $sidebar-bg;
   border-radius: 0;
   border-left: 0;
-  border-right: 0;
+  border-right: 1px solid $sidebar-border;
   padding: 0;
 
   a,
   form > button {
-    color: $sidebar-muted-text;
+    color: $sidebar-text;
     display: block;
 
     &:hover {
-      color: lighten(theme-color("primary"), 15%);
+      background: $sidebar-hover-bg;
+      color: $sidebar-text;
       text-decoration: none;
     }
 
-    &.active,
     &[aria-expanded="true"] {
-      background: darken($sidebar-bg, 5%);
-      border-color: darken($sidebar-bg, 10%);
-      color: lighten($sidebar-muted-text, 20%);
+      background: $sidebar-hover-bg;
+    }
+
+    // Borde izquierdo de 3px como sombra interna: no desplaza el texto
+    &.active {
+      background: $sidebar-hover-bg;
+      box-shadow: inset 3px 0 0 theme-color("primary");
+      color: theme-color("primary");
     }
 
     &[aria-expanded="true"] .feather-chevron-down {
@@ -110,7 +140,7 @@
 .admin-sidebar .list-group-item > .collapsing {
 
   .list-group-item {
-    background: darken($sidebar-bg, 5%);
+    background: $sidebar-bg;
     border: 0;
 
     .feather {
@@ -133,6 +163,14 @@
 
 .admin-sidebar .tournament-title {
   min-height: 70px;
+
+  // Nombre del torneo: DM Sans legible en lugar de Anton pequeno en mayusculas
+  .tournament-name {
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-sm;
+    font-weight: 700;
+    line-height: 1.25;
+  }
 
   .logo-large {
     margin-left: -4px;

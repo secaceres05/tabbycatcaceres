@@ -7,18 +7,22 @@
 //------------------------------------------------------------------------------
 
 // Family -- headings en bold condensado (estilo IG del torneo), cuerpo legible
-$font-family-sans-serif:  "Archivo Black", -apple-system,
+$font-family-sans-serif:  "DM Sans", -apple-system,
   blinkmacsystemfont, "Segoe UI", roboto,
   "Helvetica Neue", arial, sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol" !default;
 $headings-font-family:    "Anton", -apple-system, blinkmacsystemfont,
   "Helvetica Neue", arial, sans-serif;
+// Archivo Black solo como acento: botones y .navbar-brand
+$font-family-accent:      "Archivo Black", -apple-system, blinkmacsystemfont,
+  "Helvetica Neue", arial, sans-serif;
+$btn-font-family:         $font-family-accent;
 
 // Sizing
 $font-size-base:          1rem;
 $line-height-base:        1.375;
-$headings-font-weight:    700;
+$headings-font-weight:    400; // Anton solo existe en 400: evita negrita falsa
 $h3-font-size: $font-size-base * 1.7;
 
 //------------------------------------------------------------------------------
@@ -26,7 +30,7 @@ $h3-font-size: $font-size-base * 1.7;
 //------------------------------------------------------------------------------
 
 // Theme colors
-$purple:                  #2FE6C7; // Primary (antes morado -- ahora teal de marca)
+$purple:                  #2FE6C6; // Primary (antes morado -- ahora teal de marca)
 $green:                   #00bf8a; // Success (se mantiene, funciona bien sobre oscuro)
 $blue:                    #F72585; // Info -> reutilizado como magenta de marca
 $orange:                  #FFB627; // Warning (amarillo/naranja de marca)
@@ -85,7 +89,17 @@ $dropdown-border-color:   rgba(255, 255, 255, 0.1);
 $modal-content-bg:        #10353a;
 $modal-content-border-color: rgba(255, 255, 255, 0.1);
 
+$list-group-bg:                  #10353a;
+$list-group-border-color:        rgba(255, 255, 255, 0.1);
+$list-group-hover-bg:            rgba(255, 255, 255, 0.05);
+$list-group-action-color:        $body-color;
+$list-group-action-hover-color:  $body-color;
+$list-group-action-active-bg:    rgba(255, 255, 255, 0.08);
+$list-group-disabled-color:      $gray-600;
+
 $border-color:            rgba(255, 255, 255, 0.1);
+
+$text-muted:              $gray-500;
 
 $link-color:              $purple;
 
@@ -102,9 +116,44 @@ $input-btn-padding-y-sm:    0.3125rem;
 
 $navbar-light-hover-color:  $purple;
 
+// Navbar oscuro (top nav): fondo #071a1c = theme-color("dark")
+$navbar-dark-bg:            #071a1c;
+$navbar-dark-color:         rgba(241, 245, 244, 0.8);
+$navbar-dark-hover-color:   $purple;
+$navbar-dark-active-color:  #fff;
+$navbar-dark-brand-color:   #fff;
+$navbar-dark-brand-hover-color: $purple;
+
 //------------------------------------------------------------------------------
 // Tipografia de acento (badges, callouts) -- no reemplaza el body completo
 //------------------------------------------------------------------------------
+
+.navbar-brand {
+  font-family: $font-family-accent;
+}
+
+// Bootstrap 4.6 no tiene variable de letter-spacing para headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.text-heading {
+  letter-spacing: 0.01em;
+}
+
+//------------------------------------------------------------------------------
+// List-group actions (tarjetas-link): titulo en el color del item (teal),
+// descripcion en texto de cuerpo atenuado
+//------------------------------------------------------------------------------
+
+.list-group-item-action .list-group-item-text {
+  color: rgba($body-color, 0.75);
+}
+
+// Items con fondo de color (to_complete -> bg-* text-white) o activos
+.list-group-item-action.text-white .list-group-item-text,
+.list-group-item-action.active .list-group-item-text {
+  color: inherit;
+  opacity: 0.85;
+}
 
 .accent-script {
   font-family: "Caveat", cursive;

@@ -11,7 +11,6 @@ fi
 
 cd tabbycat
 python ./manage.py migrate --no-input
-python ./manage.py compilejsi18n
 cd ..
 
 npm run cp-fonts

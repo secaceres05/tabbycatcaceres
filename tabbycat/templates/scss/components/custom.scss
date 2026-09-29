@@ -1,39 +1,38 @@
 //------------------------------------------------------------------------------
 // Bootstrap overrides and custom variables
-// Note these take precedences over bootstrap as they are not set as default
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Boostrap Type
+// Bootstrap Type
 //------------------------------------------------------------------------------
 
-// Family
-$font-family-sans-serif:  "Inter-Regular", -apple-system,
+// Family -- headings en bold condensado (estilo IG del torneo), cuerpo legible
+$font-family-sans-serif:  "Archivo Black", -apple-system,
   blinkmacsystemfont, "Segoe UI", roboto,
   "Helvetica Neue", arial, sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol" !default;
-$headings-font-family:    -apple-system, blinkmacsystemfont, "Helvetica Neue",
-  arial, sans-serif;
+$headings-font-family:    "Anton", -apple-system, blinkmacsystemfont,
+  "Helvetica Neue", arial, sans-serif;
 
 // Sizing
-$font-size-base:          1rem; // Usually 16px;
-$line-height-base:        1.375; // Usually 1.5; this maps to 16px > 22px
+$font-size-base:          1rem;
+$line-height-base:        1.375;
 $headings-font-weight:    700;
-$h3-font-size: $font-size-base * 1.7; // Tweak for better mobile spacing
+$h3-font-size: $font-size-base * 1.7;
 
 //------------------------------------------------------------------------------
-// Bootstrap Color Overrides
+// Bootstrap Color Overrides -- paleta XIV TND Cali 2026
 //------------------------------------------------------------------------------
 
 // Theme colors
-$purple:                  #663da0; // Primary
-$green:                   #00bf8a; // Success
-$blue:                    #17a2b8; // Info
-$orange:                  #fd681d; // Warning
-$red:                     #d1185e; // Danger
+$purple:                  #2FE6C7; // Primary (antes morado -- ahora teal de marca)
+$green:                   #00bf8a; // Success (se mantiene, funciona bien sobre oscuro)
+$blue:                    #F72585; // Info -> reutilizado como magenta de marca
+$orange:                  #FFB627; // Warning (amarillo/naranja de marca)
+$red:                     #d1185e; // Danger (se mantiene)
 
-// Bootstrap defaults; just copied here so they can be referred to
+// Bootstrap defaults, sin cambio
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -44,20 +43,51 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 
-// Key Colors
-$body-bg:                 #f8fafc;
-$body-color:              $gray-900; // Gray-900 equivalent; for body text
+// Key Colors -- modo oscuro
+$body-bg:                 #0B2B2E;
+$body-color:              #f1f5f4; // texto claro sobre fondo oscuro
 
 $theme-colors: (
   primary: $purple,
-  secondary: $gray-600,
+  secondary: #8b96a5,
   success: $green,
   info: $blue,
   warning: $orange,
   danger: $red,
-  light: $gray-400,
-  dark: $gray-800
+  light: $gray-700,
+  dark: #071a1c
 );
+
+//------------------------------------------------------------------------------
+// Overrides adicionales necesarios para coherencia en oscuro
+// (Bootstrap 4 no trae dark mode nativo -- hay que fijar esto a mano)
+//------------------------------------------------------------------------------
+
+$card-bg:                 #10353a;
+$card-border-color:       rgba(255, 255, 255, 0.1);
+
+$table-bg:                transparent;
+$table-color:             $body-color;
+$table-border-color:      rgba(255, 255, 255, 0.1);
+$table-hover-bg:          rgba(255, 255, 255, 0.05);
+$table-striped-bg:        rgba(255, 255, 255, 0.03);
+
+$input-bg:                #10353a;
+$input-color:             $body-color;
+$input-border-color:      rgba(255, 255, 255, 0.15);
+$input-placeholder-color: #7d9494;
+
+$dropdown-bg:             #10353a;
+$dropdown-link-color:     $body-color;
+$dropdown-link-hover-bg:  rgba(255, 255, 255, 0.08);
+$dropdown-border-color:   rgba(255, 255, 255, 0.1);
+
+$modal-content-bg:        #10353a;
+$modal-content-border-color: rgba(255, 255, 255, 0.1);
+
+$border-color:            rgba(255, 255, 255, 0.1);
+
+$link-color:              $purple;
 
 //------------------------------------------------------------------------------
 // Bootstrap Layout Details Overrides
@@ -71,3 +101,12 @@ $input-btn-padding-y:       0.625rem;
 $input-btn-padding-y-sm:    0.3125rem;
 
 $navbar-light-hover-color:  $purple;
+
+//------------------------------------------------------------------------------
+// Tipografia de acento (badges, callouts) -- no reemplaza el body completo
+//------------------------------------------------------------------------------
+
+.accent-script {
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+}

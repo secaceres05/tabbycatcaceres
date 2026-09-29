@@ -6,20 +6,39 @@
   padding-left: 21px; // Match margin of cards and titles
 }
 
+// Boton "copiar tabla" junto a la busqueda: mismo aspecto que la lupa
+// (.input-group-text), solo para este boton
+.btn.btn-table-copy {
+  background-color: $input-group-addon-bg;
+  border: $input-border-width solid $input-group-addon-border-color;
+  color: $input-group-addon-color;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: $input-group-addon-color;
+  }
+}
+
 .table {
   font-size: $font-size-sm;
-  background: $alt-bg; // For when tables blow out on mobile
+  background: $card-bg; // For when tables blow out on mobile (modo oscuro: tono de card)
   margin-bottom: 0; // Handled by the container elements
 
   th {
     border-top: 0;
   }
 
+  // Filas alternas sutiles
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $table-accent-bg;
+  }
+
   > tbody > tr:hover td {
     background-color: $table-bg-hover;
 
     .hide-underline {
-      border-bottom-color: $table-bg-hover;
+      border-bottom-color: transparent;
     }
   }
 
@@ -46,7 +65,7 @@ thead,
 
   font-size: $font-size-base;
   line-height: $font-size-base;
-  background: $alt-bg; // Fixed header needs a background while scrolling
+  background: $table-head-bg; // Fixed header needs a background while scrolling
   min-height: 40px; // Must accomodate vue-sort key without resizing
   position: sticky;
   inset-block-start: 0;
@@ -221,7 +240,7 @@ thead,
 
   // For highlighting boundaries between metrics in "draw with details"
   &.highlight-col {
-    border-left: 2px dotted $droppable-bg;
+    border-left: 2px dotted $input-border-color;
   }
 
   .result-icon {

@@ -27,11 +27,22 @@
   pointer-events: none;
 }
 
-// Use mostly transparent backgrounds rather than fully transparent
+// Modo oscuro: botones de contorno con fondo transparente (antes blanco al 75%).
+// En hover Bootstrap rellena con el color y usa color-yiq() para el texto
+// (#071a1c sobre teal, via $yiq-text-dark).
 @each $color, $value in $theme-colors {
 
   .btn-outline-#{$color} {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: transparent;
+  }
+}
+
+// Tarjetas-accion "por completar" (item-action.html: bg-* text-white): el texto
+// sigue el contraste del fondo en vez de ir siempre en blanco
+@each $color, $value in $theme-colors {
+
+  .list-group-item-action.bg-#{$color}.text-white {
+    color: color-yiq($value) !important;
   }
 }
 

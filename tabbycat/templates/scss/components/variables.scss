@@ -10,7 +10,7 @@
 
 // Layout Colors
 $alt-bg:                  #fff;     // For tables etc
-$table-bg-hover:          #e3e3e3;
+$table-bg-hover:          $table-hover-bg; // antes #e3e3e3 (gris claro)
 $sidebar-bg:              #071a1c;  // Mismo tono que el navbar oscuro
 $sidebar-border:          rgba(255, 255, 255, 0.1);
 $sidebar-hover-bg:        rgba(255, 255, 255, 0.05);

@@ -69,7 +69,7 @@ const copyTableTrigger = (i) => {
           :key="i"
         >
           <button
-            class="btn btn-light border ml-2"
+            class="btn btn-table-copy ml-2"
             data-toggle="tooltip"
             title="Copy table data to clipboard in a CSV format"
             @click.prevent="copyTableTrigger(i)"

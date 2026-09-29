@@ -31,7 +31,7 @@ $h3-font-size: $font-size-base * 1.7;
 
 // Theme colors
 $purple:                  #2FE6C6; // Primary (antes morado -- ahora teal de marca)
-$green:                   #00bf8a; // Success (se mantiene, funciona bien sobre oscuro)
+$green:                   #1fcf9e; // Success: verde-teal, distinto de $purple pero de la misma familia
 $blue:                    #F72585; // Info -> reutilizado como magenta de marca
 $orange:                  #FFB627; // Warning (amarillo/naranja de marca)
 $red:                     #d1185e; // Danger (se mantiene)
@@ -62,6 +62,12 @@ $theme-colors: (
   dark: #071a1c
 );
 
+// Texto oscuro automatico (botones, badges) en el tono de marca. El umbral
+// baja de 150 a 140 para que success (#1fcf9e, brillo ~149) y secondary lleven
+// texto oscuro: blanco sobre #1fcf9e da contraste 2:1, #071a1c da 9:1.
+$yiq-text-dark:             #071a1c;
+$yiq-contrasted-threshold:  140;
+
 //------------------------------------------------------------------------------
 // Overrides adicionales necesarios para coherencia en oscuro
 // (Bootstrap 4 no trae dark mode nativo -- hay que fijar esto a mano)
@@ -74,12 +80,18 @@ $table-bg:                transparent;
 $table-color:             $body-color;
 $table-border-color:      rgba(255, 255, 255, 0.1);
 $table-hover-bg:          rgba(255, 255, 255, 0.05);
-$table-striped-bg:        rgba(255, 255, 255, 0.03);
+$table-accent-bg:         rgba(255, 255, 255, 0.03); // filas alternas (nombre de BS 4.6)
+$table-head-bg:           #071a1c; // encabezado sticky
 
 $input-bg:                #10353a;
 $input-color:             $body-color;
 $input-border-color:      rgba(255, 255, 255, 0.15);
 $input-placeholder-color: #7d9494;
+
+// Addons de input-group (p. ej. la lupa de "Find in Table"): igual que el input
+$input-group-addon-bg:           #10353a;
+$input-group-addon-color:        $body-color;
+$input-group-addon-border-color: rgba(255, 255, 255, 0.15);
 
 $dropdown-bg:             #10353a;
 $dropdown-link-color:     $body-color;
@@ -130,6 +142,13 @@ $navbar-dark-brand-hover-color: $purple;
 
 .navbar-brand {
   font-family: $font-family-accent;
+}
+
+// Los .btn-link se ven como links (p. ej. "Desconectarse"): van en la fuente
+// del cuerpo, no en Archivo Black. Especificidad alta porque .btn se emite
+// despues de este archivo.
+.btn.btn-link:not(.navbar-brand) {
+  font-family: $font-family-sans-serif;
 }
 
 // Bootstrap 4.6 no tiene variable de letter-spacing para headings

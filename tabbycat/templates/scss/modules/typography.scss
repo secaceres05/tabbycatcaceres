@@ -43,7 +43,7 @@ h6,
 
 // Mostly for hiding it in extra lines on table cells
 .hide-underline {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid transparent; // antes #fff: se veia como linea blanca en oscuro
 }
 
 .subtitle {
